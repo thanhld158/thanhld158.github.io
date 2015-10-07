@@ -6,7 +6,7 @@
 
 // jQuery for page scrolling feature - requires jQuery Easing plugin
 $(function() {
-    $('body').on('click', '.page-scroll a', function(event) {
+    $('.page-scroll a').bind('click', function(event) {
         var $anchor = $(this);
         $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top
@@ -34,4 +34,25 @@ $('body').scrollspy({
 // Closes the Responsive Menu on Menu Item Click
 $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
+});
+$(document).ready(function() {
+/*** Quotes-Slider ***/
+    $('.flexslider').flexslider({
+        animation: "slide",
+        touch: true,
+        slideshow: true,
+        slideshowSpeed: 5000,        
+        animationSpeed: 2000,
+        controlNav: false,
+        directionNav: false,
+     });
+});
+
+/*progress-bar*/
+$(document).ready(function(){
+    $('.skillbar').each(function(){
+        $(this).find('.skillbar-bar').animate({
+            width:$(this).attr('data-percent')
+        },6000);
+    });
 });
